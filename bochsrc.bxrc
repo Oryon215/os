@@ -1,0 +1,8 @@
+megs: 32
+ romimage: file=BIOS-bochs-latest
+ vgaromimage: file=VGABIOS-lgpl-latest
+ floppya: 1_44=os-image.bin, status=inserted
+ boot: a
+ log: bochs.log
+ mouse: enabled=0
+
