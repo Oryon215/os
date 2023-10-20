@@ -7,7 +7,7 @@ all: os-image.bin
 # Define a list of source files and corresponding object files
 KERNEL_SRCS := $(wildcard $(KERNEL_FILES)/*.cpp)
 
-kernel.bin: *.o
+kernel.bin: kernel-entry.o kernel.o lowlevel.o screen.o 
 	ld -m elf_i386 -o $@ -T linker.ld $^ --format binary -nostdlib
 
 # Rule to build object files from corresponding source files
@@ -15,10 +15,10 @@ kernel.bin: *.o
 	g++ -m32 -g -ffreestanding -fno-pie -c -o $@ $<
 
 kernel-entry.o: $(KERNEL_FILES)/kernel-entry.asm
-	nasm $< -g -f elf -o $@
+	nasm $< -g -f elf32 -o $@
 
 mbr.bin: $(BOOT_FILES)/mbr.asm
-	nasm $< -g -f elf -o $@
+	nasm $< -g -f elf32 -o $@
 
 os-image.bin: mbr.bin kernel.bin
 	cat $^ > $@

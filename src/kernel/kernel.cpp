@@ -30,13 +30,11 @@ void print_keyboard(int code)
 
 void main() {
     clear_screen();
-    const char s[] = "h";
-    print_string(s);
-    int length = strlen(s);
-    if (length == 1)
-    {
-        set_char_at_video_memory(scancodes[0], 0);
-    }
+    const char *s = "h1";
+    print_string(s); // for some reason it doesn't work
+    const char arr[] = "h2";
+    print_string(arr); // it works
+
 
 }
 
