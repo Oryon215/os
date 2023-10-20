@@ -35,4 +35,5 @@ qemu: os-image.bin
 	qemu-system-i386 -fda $<
 
 clean:
+
 	$(RM) *.bin *.o *.dis
