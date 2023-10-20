@@ -1,0 +1,1 @@
+kernel-entry.o kernel.o lowlevel.o screen.o
