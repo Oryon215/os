@@ -18,7 +18,7 @@ kernel-entry.o: $(KERNEL_FILES)/kernel-entry.asm
 	nasm $< -g -f elf32 -o $@
 
 mbr.bin: $(BOOT_FILES)/mbr.asm
-	nasm $< -g -f bin -o $@
+	nasm $< -g -f elf32 -o $@
 
 os-image.bin: mbr.bin kernel.bin
 	cat $^ > $@

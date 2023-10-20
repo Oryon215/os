@@ -3,17 +3,7 @@
 #define ROWS 25
 #include "screen.h"
 #include <stdint.h>
-int strlen(const char* s)
-{
-    int length = 0;
-    int index = 0;
 
-    while(s[index] != '\0')
-    {
-        index += 1;
-    }
-    return index;
-}
 
 const char scancodes[] = {'\0','%','1','2','3','4','5','6','7','8','9','0',
 '-','=','~','\t','Q','W','E','R','T','Y','U','I','O','P','[',']','\e','\0','A', 'S','D',
@@ -30,10 +20,8 @@ void print_keyboard(int code)
 
 void main() {
     clear_screen();
-    const char *s = "h1";
-    print_string(s); // for some reason it doesn't work
-    const char arr[] = "h2";
-    print_string(arr); // it works
+    const char *arr = "h2";
+    print_string(arr); // it doesnt work
 
 
 }
