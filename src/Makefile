@@ -2,13 +2,16 @@ KERNEL_FILES = ./kernel
 BOOT_FILES = ./boot
 
 # First rule is the one executed when no parameters are fed to the Makefile
-all: os-image.bin
+all: os-image.bin kernel.elf
 
 # Define a list of source files and corresponding object files
 KERNEL_SRCS := $(wildcard $(KERNEL_FILES)/*.cpp)
 
 kernel.bin: kernel-entry.o kernel.o lowlevel.o screen.o 
 	ld -m elf_i386 -o $@ -T linker.ld $^ --format binary -nostdlib
+
+kernel.elf: kernel-entry.o kernel.o lowlevel.o screen.o
+	ld -m elf_i386 -o $@ -T linker.ld $^ -nostdlib
 
 # Rule to build object files from corresponding source files
 %.o: $(KERNEL_FILES)/%.cpp

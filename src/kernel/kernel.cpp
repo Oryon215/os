@@ -4,26 +4,10 @@
 #include "screen.h"
 #include <stdint.h>
 
-
-const char scancodes[] = {'\0','%','1','2','3','4','5','6','7','8','9','0',
-'-','=','~','\t','Q','W','E','R','T','Y','U','I','O','P','[',']','\e','\0','A', 'S','D',
-'F','G','H','J','K','L',';','\0','`',
-'\0','\\','Z','X','C','V','B','N','M',',','.',
-'/','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0','\0',
-'\0','\0','\0','\0','\0','\0','\0','\0','-','\0','\0','\0','+','\0','\0','\0','\0','~',};
-const char *c2 = "hello";
-
-void print_keyboard(int code)
-{
-    set_char_at_video_memory(scancodes[code], 0);
-}
-
 void main() {
     clear_screen();
-    const char *arr = "h2";
-    print_string(arr); // it doesnt work
-
-
+    const char* arr = "a2";
+    set_char_at_video_memory(arr[0], 0);
 }
 
 
